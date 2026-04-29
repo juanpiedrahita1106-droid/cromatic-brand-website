@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cromatic Brand | Change your mind - Change your world</title>
+    <!-- Open Graph tags for SEO -->
+    <meta property="og:title" content="Cromatic Brand | Minimalist Streetwear">
+    <meta property="og:description" content="Change your mind - Change your world.">
+    <meta property="og:image" content="assets/img/Fondo Principal.png">
     <meta name="description" content="Cromatic es una marca de ropa enfocada en el estilo streetwear contemporáneo, minimalista, futurista y urbano.">
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,6 +15,37 @@
     <link rel="icon" type="image/png" href="assets/img/Logo Camaleon.png">
 </head>
 <body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <img src="assets/img/Logo Camaleon.png" alt="Cargando...">
+    </div>
+
+    <!-- Popup CRM -->
+    <div id="promo-popup">
+        <div class="popup-content">
+            <span class="popup-close" id="close-popup">&times;</span>
+            <h2 style="margin-bottom: 1rem;">¡15% DE DESCUENTO!</h2>
+            <p style="color: var(--accent-color); margin-bottom: 1.5rem; font-size: 0.9rem;">En tu primera compra. Déjanos tus datos para recibir el beneficio.</p>
+            <form id="crm-form">
+                <input type="text" id="crm-name" class="form-control" placeholder="Tu Nombre" required style="margin-bottom: 1rem;">
+                <input type="email" id="crm-email" class="form-control" placeholder="Tu Correo" required style="margin-bottom: 1rem;">
+                <input type="tel" id="crm-phone" class="form-control" placeholder="Tu Teléfono" required style="margin-bottom: 1rem;">
+                <div style="text-align: left; font-size: 0.8rem; margin-bottom: 1.5rem; color: var(--accent-color);">
+                    <input type="checkbox" id="crm-consent" required>
+                    <label for="crm-consent">Acepto recibir información y promociones de la marca.</label>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">¡QUIERO MI DESCUENTO!</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>ENVÍOS GRATIS A TODO EL PAÍS • CHANGE YOUR MIND - CHANGE YOUR WORLD • NUEVA COLECCIÓN DISPONIBLE •</span>
+            <span>ENVÍOS GRATIS A TODO EL PAÍS • CHANGE YOUR MIND - CHANGE YOUR WORLD • NUEVA COLECCIÓN DISPONIBLE •</span>
+        </div>
+    </div>
 
     <header>
         <nav class="navbar">
@@ -39,7 +74,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero fade-in">
             <div class="hero-content">
                 <h1>CROMATIC</h1>
                 <p>Change your mind - Change your world</p>
@@ -48,7 +83,7 @@
         </section>
 
         <!-- About Brief -->
-        <section class="section" style="text-align: center; max-width: 800px;">
+        <section class="section fade-in" style="text-align: center; max-width: 800px;">
             <h2 class="section-title">Nuestra Identidad</h2>
             <p style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 2rem;">
                 Cromatic representa un equilibrio entre estilo, comodidad y autenticidad. Nuestro enfoque estético combina lo minimalista, futurista y urbano, construyendo una identidad visual limpia pero con carácter.
@@ -57,7 +92,7 @@
         </section>
 
         <!-- Featured Products -->
-        <section class="section">
+        <section class="section fade-in">
             <h2 class="section-title">Destacados</h2>
             <div class="product-grid">
                 
@@ -70,6 +105,12 @@
                         <span class="product-category">Prendas Superiores</span>
                         <h3 class="product-title">Camiseta Own Frame Blanca</h3>
                         <p class="product-price">$210.000 COP</p>
+                        <div class="size-selector">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
                         <button class="btn-add-cart">Añadir al carrito</button>
                     </div>
                 </article>
@@ -83,6 +124,12 @@
                         <span class="product-category">Prendas Superiores</span>
                         <h3 class="product-title">Camiseta Own Frame Negra</h3>
                         <p class="product-price">$210.000 COP</p>
+                        <div class="size-selector">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
                         <button class="btn-add-cart">Añadir al carrito</button>
                     </div>
                 </article>
@@ -96,6 +143,12 @@
                         <span class="product-category">Prendas Superiores</span>
                         <h3 class="product-title">Camiseta Coeur Blanca</h3>
                         <p class="product-price">$210.000 COP</p>
+                        <div class="size-selector">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
                         <button class="btn-add-cart">Añadir al carrito</button>
                     </div>
                 </article>
@@ -109,6 +162,12 @@
                         <span class="product-category">Prendas Superiores</span>
                         <h3 class="product-title">Camiseta Coeur Negra</h3>
                         <p class="product-price">$210.000 COP</p>
+                        <div class="size-selector">
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                        </div>
                         <button class="btn-add-cart">Añadir al carrito</button>
                     </div>
                 </article>
@@ -116,6 +175,18 @@
             </div>
             <div style="text-align: center; margin-top: 3rem;">
                 <a href="productos.html" class="btn btn-outline">Ver Todo</a>
+            </div>
+        </section>
+
+        <!-- Lookbook Section -->
+        <section class="section fade-in">
+            <h2 class="section-title">As seen on</h2>
+            <div class="lookbook-grid">
+                <div class="lookbook-item"><img src="assets/img/2001.png" alt="Streetwear 1"></div>
+                <div class="lookbook-item"><img src="assets/img/2002.png" alt="Streetwear 2"></div>
+                <div class="lookbook-item"><img src="assets/img/2003.png" alt="Streetwear 3"></div>
+                <div class="lookbook-item"><img src="assets/img/2004.png" alt="Streetwear 4"></div>
+                <div class="lookbook-item"><img src="assets/img/2005.png" alt="Streetwear 5"></div>
             </div>
         </section>
     </main>

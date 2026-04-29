@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto | Cromatic Brand</title>
+    <!-- Open Graph tags for SEO -->
+    <meta property="og:title" content="Cromatic Brand | Minimalist Streetwear">
+    <meta property="og:description" content="Change your mind - Change your world.">
+    <meta property="og:image" content="assets/img/Fondo Principal.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" type="image/png" href="assets/img/Logo Camaleon.png">
+    <style>
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .product-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .product-info-detail {
+            color: var(--text-color);
+        }
+        .product-info-detail h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .product-info-detail .price {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+        .product-info-detail .description {
+            color: var(--accent-color);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            .product-detail-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>ENVÍOS GRATIS A TODO EL PAÍS • CHANGE YOUR MIND - CHANGE YOUR WORLD • NUEVA COLECCIÓN DISPONIBLE •</span>
+            <span>ENVÍOS GRATIS A TODO EL PAÍS • CHANGE YOUR MIND - CHANGE YOUR WORLD • NUEVA COLECCIÓN DISPONIBLE •</span>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="carrito.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="product-detail-container fade-in" id="detail-wrapper">
+            <!-- Rendered by JS -->
+            <div style="text-align: center; width: 100%; grid-column: 1 / -1;">Cargando producto...</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic" style="height: 30px; filter: invert(1); margin-bottom: 1rem;">
+                <p>Change your mind - Change your world.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/cromaticbrand/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@cromaticbrand?_r=1&_t=ZS-95xHrjurNun" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="terminos.html">Términos y Condiciones</a></li>
+                    <li><a href="devoluciones.html">Devoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cromatic Brand. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            const wrapper = document.getElementById('detail-wrapper');
+
+            // Product database simulation
+            const products = {
+                '1': {
+                    title: 'Camiseta Own Frame Blanca',
+                    price: 210000,
+                    desc: 'Nuestra icónica camiseta Own Frame en color blanco. Confeccionada con algodón de la más alta calidad (100% algodón peinado) con un gramaje grueso para garantizar estructura y durabilidad. Corte oversize sutil.',
+                    imgFront: 'assets/img/Camiseta Own Frame blanca (front side).png',
+                    imgBack: 'assets/img/Camiseta Own Frame blanca (back side).png'
+                },
+                '2': {
+                    title: 'Camiseta Own Frame Negra',
+                    price: 210000,
+                    desc: 'Nuestra icónica camiseta Own Frame en color negro. Confeccionada con algodón de la más alta calidad (100% algodón peinado) con un gramaje grueso para garantizar estructura y durabilidad. Corte oversize sutil.',
+                    imgFront: 'assets/img/Camiseta Own Frame negra (front side).png',
+                    imgBack: 'assets/img/Camiseta Own Frame negra (back side).png'
+                },
+                '3': {
+                    title: 'Camiseta Coeur Blanca',
+                    price: 210000,
+                    desc: 'Diseño Coeur en color blanco. Detalles minimalistas para quienes buscan sofisticación urbana. Algodón premium.',
+                    imgFront: 'assets/img/Camiseta coeur blanca (front side).png',
+                    imgBack: 'assets/img/Camiseta coeur blanca (back side).png'
+                },
+                '4': {
+                    title: 'Camiseta Coeur Negra',
+                    price: 210000,
+                    desc: 'Diseño Coeur en color negro. Detalles minimalistas para quienes buscan sofisticación urbana. Algodón premium.',
+                    imgFront: 'assets/img/Camiseta coeur negra (front side).png',
+                    imgBack: 'assets/img/Camiseta coeur negra (back side).png'
+                },
+                '5': {
+                    title: 'Camiseta Coeur Crudo',
+                    price: 210000,
+                    desc: 'Diseño Coeur en color crudo/beige. Una paleta terrosa perfecta para complementar cualquier outfit. Algodón premium.',
+                    imgFront: 'assets/img/Camiseta coeur crudo (front side).png',
+                    imgBack: 'assets/img/Camiseta coeur crudo (back side).png'
+                }
+            };
+
+            const prod = products[productId];
+            
+            if (!prod) {
+                wrapper.innerHTML = '<h2 style="grid-column: 1/-1; text-align: center;">Producto no encontrado</h2>';
+                return;
+            }
+
+            document.title = `${prod.title} | Cromatic Brand`;
+
+            wrapper.innerHTML = `
+                <div class="product-gallery">
+                    <img src="${prod.imgFront}" alt="${prod.title} Front">
+                    <img src="${prod.imgBack}" alt="${prod.title} Back">
+                </div>
+                <div class="product-info-detail">
+                    <h1>${prod.title}</h1>
+                    <div class="price">$${prod.price.toLocaleString('es-CO')} COP</div>
+                    <p class="description">${prod.desc}</p>
+                    
+                    <h4 style="margin-bottom: 0.5rem;">Talla</h4>
+                    <div class="size-selector" style="justify-content: flex-start; margin-bottom: 2rem;">
+                        <button class="size-btn" data-size="S" onclick="selectDetailSize(this)">S</button>
+                        <button class="size-btn" data-size="M" onclick="selectDetailSize(this)">M</button>
+                        <button class="size-btn" data-size="L" onclick="selectDetailSize(this)">L</button>
+                        <button class="size-btn" data-size="XL" onclick="selectDetailSize(this)">XL</button>
+                    </div>
+
+                    <button class="btn" style="width: 100%;" onclick="addDetailToCart('${productId}', '${prod.title}', ${prod.price}, '${prod.imgFront}')">
+                        Añadir al carrito
+                    </button>
+                    
+                    <div style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <p style="font-size: 0.85rem; color: var(--accent-color); margin-bottom: 0.5rem;"><i class="fas fa-truck" style="width: 20px;"></i> Envíos gratis a todo el país.</p>
+                        <p style="font-size: 0.85rem; color: var(--accent-color);"><i class="fas fa-undo" style="width: 20px;"></i> 30 días para devoluciones.</p>
+                    </div>
+                </div>
+            `;
+            
+            // Re-apply observer for new elements
+            document.querySelectorAll('.fade-in').forEach(section => {
+                setTimeout(() => section.classList.add('visible'), 100);
+            });
+        });
+
+        function selectDetailSize(btn) {
+            document.querySelectorAll('.product-info-detail .size-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function addDetailToCart(id, title, price, img) {
+            const selectedSizeBtn = document.querySelector('.product-info-detail .size-btn.selected');
+            if (!selectedSizeBtn) {
+                alert('Por favor, selecciona una talla antes de añadir al carrito.');
+                return;
+            }
+            const size = selectedSizeBtn.dataset.size;
+
+            const product = {
+                id: id + '-' + size,
+                originalId: id,
+                title: title,
+                price: price,
+                img: img,
+                size: size,
+                quantity: 1
+            };
+
+            // Using global addToCart from main.js
+            addToCart(product);
+            alert(`${title} (Talla ${size}) añadido al carrito.`);
+        }
+    </script>
+</body>
+</html>

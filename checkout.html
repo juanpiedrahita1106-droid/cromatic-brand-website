@@ -99,14 +99,7 @@
                             <input type="text" class="form-control" required>
                         </div>
                         
-                        <h2 style="margin-top: 2rem;">Pago</h2>
-                        <p style="color: var(--accent-color); margin-bottom: 1rem; font-size: 0.9rem;">(Esta es una simulación. No introduzca datos reales).</p>
-                        <div class="form-group">
-                            <label>Número de Tarjeta</label>
-                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000" required>
-                        </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Confirmar Pedido</button>
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Enviar Pedido por WhatsApp</button>
                     </form>
                 </div>
 
@@ -141,15 +134,9 @@
                 const subtotal = item.price * item.quantity;
                 total += subtotal;
                 html += `
-                    <div class="order-summary-item">
-                        <div style="display: flex;">
-                            <img src="${item.img}" alt="${item.title}">
-                            <div>
-                                <h4>${item.title}</h4>
-                                <span style="color: var(--accent-color); font-size: 0.9rem;">Cant: ${item.quantity}</span>
-                            </div>
-                        </div>
-                        <div>$${subtotal.toLocaleString('es-CO')} COP</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--accent-color);">
+                        <span>${item.quantity}x ${item.title} ${item.size ? `(Talla ${item.size})` : ''}</span>
+                        <span>$${subtotal.toLocaleString('es-CO')} COP</span>
                     </div>
                 `;
             });
@@ -165,13 +152,41 @@
         }
 
         function processCheckout() {
-            if(getCart().length === 0) {
-                alert("Tu carrito está vacío.");
+            const inputs = document.querySelectorAll('input[required]');
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!input.value) isValid = false;
+            });
+
+            if (!isValid) return;
+
+            const name = inputs[0].value;
+            const email = inputs[1].value;
+            const address = inputs[2].value;
+            const city = inputs[3].value;
+            const phone = inputs[4].value;
+
+            const cart = getCart();
+            if(cart.length === 0) {
+                alert('El carrito está vacío');
                 return;
             }
-            alert("¡Gracias por tu compra! Tu pedido en Cromatic ha sido procesado exitosamente.");
-            localStorage.removeItem('cromatic_cart');
-            window.location.href = 'index.html';
+
+            let orderItems = '';
+            let total = 0;
+            cart.forEach(item => {
+                const sub = item.price * item.quantity;
+                total += sub;
+                orderItems += `- ${item.quantity}x ${item.title} ${item.size ? `(Talla ${item.size})` : ''} - $${sub.toLocaleString('es-CO')} COP\n`;
+            });
+
+            const msg = `¡Hola Cromatic! Quiero hacer el siguiente pedido:\n\n*DATOS DE ENVÍO:*\nNombre: ${name}\nTeléfono: ${phone}\nDirección: ${address}, ${city}\nCorreo: ${email}\n\n*MI PEDIDO:*\n${orderItems}\n*TOTAL: $${total.toLocaleString('es-CO')} COP*\n\nQuedo atento a las instrucciones para el pago.`;
+            
+            const waUrl = `https://wa.me/573128917257?text=${encodeURIComponent(msg)}`;
+            
+            // Empty cart after routing to WhatsApp
+            saveCart([]);
+            window.location.href = waUrl;
         }
     </script>
 </body>

@@ -194,7 +194,7 @@
                     <tr>
                         <td>
                             <img src="${item.img}" class="cart-item-img" alt="${item.title}">
-                            <span>${item.title}</span>
+                            <span>${item.title} ${item.size ? `<br><small style="color: var(--accent-color);">Talla: ${item.size}</small>` : ''}</span>
                         </td>
                         <td>$${item.price.toLocaleString('es-CO')} COP</td>
                         <td>
