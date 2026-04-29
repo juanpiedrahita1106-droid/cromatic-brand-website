@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Cromatic Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .checkout-box {
+            background: var(--card-bg);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .order-summary-item img {
+            width: 50px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .order-total {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1 class="section-title">Finalizar Compra</h1>
+            
+            <div class="checkout-container">
+                <!-- Formulario de datos -->
+                <div class="checkout-box">
+                    <h2>Datos de Envío</h2>
+                    <form onsubmit="event.preventDefault(); processCheckout();">
+                        <div class="form-group">
+                            <label>Nombre Completo</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Dirección de Envío</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Ciudad</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        
+                        <h2 style="margin-top: 2rem;">Pago</h2>
+                        <p style="color: var(--accent-color); margin-bottom: 1rem; font-size: 0.9rem;">(Esta es una simulación. No introduzca datos reales).</p>
+                        <div class="form-group">
+                            <label>Número de Tarjeta</label>
+                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000" required>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Confirmar Pedido</button>
+                    </form>
+                </div>
+
+                <!-- Resumen de compra -->
+                <div class="checkout-box">
+                    <h2>Resumen del Pedido</h2>
+                    <div id="checkout-summary" style="margin-top: 1rem;">
+                        <!-- JS generará el contenido -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', renderSummary);
+
+        function renderSummary() {
+            const summaryContainer = document.getElementById('checkout-summary');
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                summaryContainer.innerHTML = '<p>No hay productos en el pedido.</p>';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                html += `
+                    <div class="order-summary-item">
+                        <div style="display: flex;">
+                            <img src="${item.img}" alt="${item.title}">
+                            <div>
+                                <h4>${item.title}</h4>
+                                <span style="color: var(--accent-color); font-size: 0.9rem;">Cant: ${item.quantity}</span>
+                            </div>
+                        </div>
+                        <div>$${subtotal.toLocaleString('es-CO')} COP</div>
+                    </div>
+                `;
+            });
+
+            html += `
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span style="color: white;">$${total.toLocaleString('es-CO')} COP</span>
+                </div>
+            `;
+
+            summaryContainer.innerHTML = html;
+        }
+
+        function processCheckout() {
+            if(getCart().length === 0) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+            alert("¡Gracias por tu compra! Tu pedido en Cromatic ha sido procesado exitosamente.");
+            localStorage.removeItem('cromatic_cart');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

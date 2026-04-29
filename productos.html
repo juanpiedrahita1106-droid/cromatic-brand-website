@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Cromatic Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .page-header {
+            padding: 6rem 5% 4rem;
+            text-align: center;
+            background: url('assets/img/Fondo Segundario.png') center/cover no-repeat;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 0;
+        }
+        
+        .page-header h1, .page-header p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--accent-dark);
+            color: var(--accent-color);
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            border-radius: 20px;
+            font-family: var(--font-main);
+            transition: all var(--transition-speed);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+            border-color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="carrito.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Colección</h1>
+            <p style="color: var(--accent-color);">Descubre nuestra última línea de streetwear minimalista.</p>
+        </div>
+
+        <section class="section pt-0">
+            <div class="filters">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Superiores</button>
+                <button class="filter-btn">Inferiores</button>
+                <button class="filter-btn">Accesorios</button>
+            </div>
+
+            <div class="product-grid">
+                
+                <article class="product-card" data-id="1">
+                    <div class="product-img-wrapper">
+                        <img src="assets/img/Camiseta Own Frame blanca (front side).png" alt="Camiseta Own Frame blanca" class="product-img front">
+                        <img src="assets/img/Camiseta Own Frame blanca (back side).png" alt="Camiseta Own Frame blanca" class="product-img back">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Prendas Superiores</span>
+                        <h3 class="product-title">Camiseta Own Frame Blanca</h3>
+                        <p class="product-price">$210.000 COP</p>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="2">
+                    <div class="product-img-wrapper">
+                        <img src="assets/img/Camiseta Own Frame negra (front side).png" alt="Camiseta Own Frame negra" class="product-img front">
+                        <img src="assets/img/Camiseta Own Frame negra (back side).png" alt="Camiseta Own Frame negra" class="product-img back">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Prendas Superiores</span>
+                        <h3 class="product-title">Camiseta Own Frame Negra</h3>
+                        <p class="product-price">$210.000 COP</p>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="3">
+                    <div class="product-img-wrapper">
+                        <img src="assets/img/Camiseta coeur blanca (front side).png" alt="Camiseta coeur blanca" class="product-img front">
+                        <img src="assets/img/Camiseta coeur blanca (back side).png" alt="Camiseta coeur blanca" class="product-img back">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Prendas Superiores</span>
+                        <h3 class="product-title">Camiseta Coeur Blanca</h3>
+                        <p class="product-price">$210.000 COP</p>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="4">
+                    <div class="product-img-wrapper">
+                        <img src="assets/img/Camiseta coeur negra (front side).png" alt="Camiseta coeur negra" class="product-img front">
+                        <img src="assets/img/Camiseta coeur negra (back side).png" alt="Camiseta coeur negra" class="product-img back">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Prendas Superiores</span>
+                        <h3 class="product-title">Camiseta Coeur Negra</h3>
+                        <p class="product-price">$210.000 COP</p>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="product-card" data-id="5">
+                    <div class="product-img-wrapper">
+                        <img src="assets/img/Camiseta coeur crudo (front side).png" alt="Camiseta coeur crudo" class="product-img front">
+                        <img src="assets/img/Camiseta coeur crudo (back side).png" alt="Camiseta coeur crudo" class="product-img back">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Prendas Superiores</span>
+                        <h3 class="product-title">Camiseta Coeur Crudo</h3>
+                        <p class="product-price">$210.000 COP</p>
+                        <button class="btn-add-cart">Añadir al carrito</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic" style="height: 30px; filter: invert(1); margin-bottom: 1rem;">
+                <p>Change your mind - Change your world.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Soporte</h4>
+                <ul class="footer-links">
+                    <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                    <li><a href="terminos.html">Términos y Condiciones</a></li>
+                    <li><a href="devoluciones.html">Política de Devoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cromatic Brand. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

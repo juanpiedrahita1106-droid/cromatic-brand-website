@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Cromatic Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            color: var(--accent-color);
+        }
+
+        .contact-info h3 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--text-color);
+            width: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="carrito.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1 class="section-title">Contáctanos</h1>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p style="margin-bottom: 2rem;">¿Tienes alguna duda sobre nuestros productos, necesitas ayuda con tu pedido o simplemente quieres saludar? Estamos aquí para ayudarte.</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@cromaticbrand.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>@cromaticbrand</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h3>Website</h3>
+                            <p>https://cromaticbrand.com/</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form onsubmit="event.preventDefault(); alert('Mensaje enviado. Te responderemos pronto.'); this.reset();" style="background: var(--card-bg); padding: 2rem; border: 1px solid var(--border-color); border-radius: 4px;">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Asunto</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mensaje</label>
+                            <textarea class="form-control" rows="5" required style="resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic" style="height: 30px; filter: invert(1); margin-bottom: 1rem;">
+                <p>Change your mind - Change your world.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cromatic Brand. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

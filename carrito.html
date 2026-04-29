@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito | Cromatic Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .cart-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .cart-table th, .cart-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-table th {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            vertical-align: middle;
+            margin-right: 1rem;
+            background-color: #1a1a1a;
+        }
+
+        .qty-input {
+            width: 60px;
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 0.3rem;
+            text-align: center;
+        }
+
+        .btn-remove {
+            color: #ff4d4d;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-summary {
+            text-align: right;
+        }
+
+        .cart-summary h3 {
+            margin-bottom: 1rem;
+        }
+
+        .btn-checkout {
+            background: var(--text-color);
+            color: var(--bg-color);
+            padding: 1rem 2rem;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all var(--transition-speed);
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .btn-checkout:hover {
+            background: var(--accent-color);
+        }
+
+        .empty-cart-msg {
+            text-align: center;
+            padding: 3rem;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="carrito.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1 class="section-title">Tu Carrito</h1>
+            
+            <div class="cart-container" id="cart-container">
+                <!-- Se llenará con JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic" style="height: 30px; filter: invert(1); margin-bottom: 1rem;">
+                <p>Change your mind - Change your world.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cromatic Brand. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', renderCart);
+
+        function renderCart() {
+            const cartContainer = document.getElementById('cart-container');
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = `
+                    <div class="empty-cart-msg">
+                        <h2>Tu carrito está vacío</h2>
+                        <p style="margin: 1rem 0;">Parece que aún no has añadido nada.</p>
+                        <a href="productos.html" class="btn">Ir de Compras</a>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = `
+                <div style="overflow-x: auto;">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                html += `
+                    <tr>
+                        <td>
+                            <img src="${item.img}" class="cart-item-img" alt="${item.title}">
+                            <span>${item.title}</span>
+                        </td>
+                        <td>$${item.price.toLocaleString('es-CO')} COP</td>
+                        <td>
+                            <input type="number" min="1" value="${item.quantity}" class="qty-input" data-index="${index}" onchange="updateQty(${index}, this.value)">
+                        </td>
+                        <td>$${subtotal.toLocaleString('es-CO')} COP</td>
+                        <td>
+                            <button class="btn-remove" onclick="removeItem(${index})"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cart-summary">
+                    <h3>Total: $${total.toLocaleString('es-CO')} COP</h3>
+                    <a href="checkout.html" class="btn-checkout">Proceder al Checkout</a>
+                </div>
+            `;
+
+            cartContainer.innerHTML = html;
+        }
+
+        function updateQty(index, newQty) {
+            let cart = getCart();
+            qty = parseInt(newQty);
+            if (qty > 0) {
+                cart[index].quantity = qty;
+                saveCart(cart);
+                renderCart();
+                updateCartCount(); // From main.js
+            }
+        }
+
+        function removeItem(index) {
+            let cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+            renderCart();
+            updateCartCount();
+        }
+    </script>
+</body>
+</html>

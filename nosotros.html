@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Cromatic Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--accent-color);
+        }
+
+        .about-content h2 {
+            color: var(--text-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .value-card i {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="carrito.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h1 class="section-title">Sobre Nosotros</h1>
+            
+            <div class="about-content">
+                <p><strong>Cromatic</strong> es una marca de ropa enfocada en el estilo streetwear contemporáneo, diseñada para personas que buscan verse bien sin caer en extremos exagerados. La marca representa un equilibrio entre estilo, comodidad y autenticidad, permitiendo a cada persona expresar su identidad de forma natural.</p>
+                <p>Nuestro enfoque estético combina lo minimalista, futurista y urbano, construyendo una identidad visual limpia pero con carácter.</p>
+
+                <h2>Propuesta de Valor</h2>
+                <p>Ofrecemos una alternativa al streetwear exagerado o sobrecargado, apostando por:</p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 2rem;">
+                    <li>Diseño limpio y versátil</li>
+                    <li>Estética minimalista con identidad urbana</li>
+                    <li>Prendas pensadas para uso diario</li>
+                    <li>Comodidad sin sacrificar estilo</li>
+                </ul>
+
+                <h2>Personalidad de Marca</h2>
+                <p>Si Cromatic fuera una persona, sería alguien con estilo, seguro de sí mismo, que se viste bien sin exagerar. No busca llamar la atención de forma forzada, pero naturalmente destaca por su estética y presencia.</p>
+
+                <h2>Visión a Futuro</h2>
+                <p>Buscamos consolidarnos como una marca referente en streetwear minimalista, expandiendo nuestra presencia y construyendo una comunidad que conecte con nuestra filosofía:</p>
+                <blockquote style="border-left: 4px solid var(--accent-color); padding-left: 1rem; margin: 2rem 0; font-style: italic; color: var(--text-color); font-size: 1.2rem;">
+                    "Cambiar la forma de pensar para transformar la forma de vivir y expresarse."
+                </blockquote>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-fingerprint"></i>
+                        <h3>Autenticidad</h3>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-couch"></i>
+                        <h3>Comodidad</h3>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <h3>Simplicidad</h3>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-arrow-trend-up"></i>
+                        <h3>Evolución</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="assets/img/Logo cromatic.png" alt="Cromatic" style="height: 30px; filter: invert(1); margin-bottom: 1rem;">
+                <p>Change your mind - Change your world.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cromatic Brand. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
