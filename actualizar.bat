@@ -1,6 +1,5 @@
 @echo off
 set PATH=C:\Program Files\Git\cmd;%PATH%
-copy "c:\Users\juanp\OneDrive\Escritorio\Cromatic Brand\Imagenes cromatic\Logo Camaleon.png" "c:\Users\juanp\OneDrive\Escritorio\Cromatic Brand\Cromatic BrandWebsite\assets\img\"
 git add .
-git commit -m "Añadir favicon (Logo Camaleon)"
+git commit -m "Actualizar enlaces de redes sociales en footer"
 git push origin master
